@@ -1,6 +1,7 @@
 <?php
 session_start();
-include 'config/DBconfig.php';
+include __DIR__ . '/../init.php';
+
 
 if (!isset($_SESSION['username']) || $_SESSION['role'] !== 'admin') {
     header('Location: login.php');
@@ -66,5 +67,6 @@ $conn->close();
 
 </body>
 </html>
+
 
 
