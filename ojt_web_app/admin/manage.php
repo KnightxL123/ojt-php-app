@@ -5,20 +5,7 @@ if (!isset($_SESSION['username']) || $_SESSION['role'] !== 'admin') {
     exit;
 }
 
-// Database connection with error handling
-try {
-    $conn = new mysqli("localhost", "root", "", "ojt");
-    
-    if ($conn->connect_error) {
-        throw new Exception("Connection failed: " . $conn->connect_error);
-    }
-    
-    // Set charset to ensure proper encoding
-    $conn->set_charset("utf8mb4");
-
-} catch (Exception $e) {
-    die("Database error: " . $e->getMessage());
-}
+include 'config/DBconfig.php';
 
 // Initialize messages
 $success_message = '';
@@ -609,4 +596,5 @@ try {
 <?php
 // Close database connection
 $conn->close();
+
 ?>
