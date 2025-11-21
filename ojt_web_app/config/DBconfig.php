@@ -3,7 +3,7 @@
 // Database configuration for Render PostgreSQL
 $host = getenv('DB_HOST') ?: 'dpg-d4fnncvpm1nc73f3kl7g-a';  // Fallback for local dev
 $port = getenv('DB_PORT') ?: '5432';
-$dbname = getenv('DB_NAME') ?: 'ojt_system';
+$dbname = getenv('DB_NAME') ?: 'ojt-database';
 $dbuser = getenv('DB_USER') ?: 'ojt_user';
 $dbpass = getenv('DB_PASS') ?: 'uIR37XPSCdh0V5xDMxmy03UdfuXYJEPH';
 
@@ -16,3 +16,4 @@ try {
     die('Database connection failed: ' . $e->getMessage());
 }
 ?>
+
