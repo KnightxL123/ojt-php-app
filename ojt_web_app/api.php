@@ -2,18 +2,28 @@
 header('Content-Type: application/json');
 header('Access-Control-Allow-Origin: *');
 header('Access-Control-Allow-Methods: GET, POST, PUT, DELETE, OPTIONS');
-header('Access-Control-Allow-Headers: Content-Type, Authorization');
-
-require_once 'config/DBconfig.php';
+header('Access-Control-Allow-Headers: Content-Type, Authorization, X-Requested-With');
 
 if ($_SERVER['REQUEST_METHOD'] == 'OPTIONS') {
+    http_response_code(200);
     exit(0);
 }
 
+require_once 'config/DBconfig.php';
+
+// Log request for debugging
+error_log("API Request: " . $_SERVER['REQUEST_METHOD'] . " " . ($_GET['action'] ?? 'no action'));
+
 $request_method = $_SERVER['REQUEST_METHOD'];
-$input = json_decode(file_get_contents('php://input'), true);
+$input = json_decode(file_get_contents('php://input'), true) ?? [];
 
 $endpoint = $_GET['action'] ?? '';
+
+// Simple root endpoint to test if API is working
+if ($endpoint == '') {
+    echo json_encode(['status' => 'API is running', 'timestamp' => date('Y-m-d H:i:s')]);
+    exit;
+}
 
 switch ($endpoint) {
     case 'login':
@@ -26,7 +36,8 @@ switch ($endpoint) {
         registerStudent($input);
         break;
     default:
-        echo json_encode(['error' => 'Endpoint not found']);
+        http_response_code(404);
+        echo json_encode(['error' => 'Endpoint not found: ' . $endpoint]);
         break;
 }
 
@@ -75,12 +86,20 @@ function handleLogin($input) {
             echo json_encode(['error' => 'Invalid credentials']);
         }
     } catch (PDOException $e) {
+        error_log("Login error: " . $e->getMessage());
         echo json_encode(['error' => 'Database error: ' . $e->getMessage()]);
     }
 }
 
 function validateStudent($input) {
     global $conn;
+    
+    // Check database connection first
+    if (!$conn) {
+        http_response_code(500);
+        echo json_encode(['valid' => false, 'error' => 'Database connection failed']);
+        return;
+    }
     
     $studentId = $input['student_id'] ?? '';
     
@@ -125,7 +144,8 @@ function validateStudent($input) {
             ]);
         }
     } catch (PDOException $e) {
-        echo json_encode(['error' => 'Database error: ' . $e->getMessage()]);
+        error_log("Validate student error: " . $e->getMessage());
+        echo json_encode(['valid' => false, 'error' => 'Database error: ' . $e->getMessage()]);
     }
 }
 
@@ -184,6 +204,7 @@ function registerStudent($input) {
         }
         
     } catch (PDOException $e) {
+        error_log("Registration error: " . $e->getMessage());
         echo json_encode(['status' => 'error', 'message' => 'Database error: ' . $e->getMessage()]);
     }
 }
