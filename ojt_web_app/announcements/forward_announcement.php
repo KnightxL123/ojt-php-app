@@ -1,6 +1,6 @@
 <?php
 session_start();
-$conn = new mysqli('localhost', 'root', '', 'OJT');
+include 'config/DBconfig.php';
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $announcement_id = intval($_POST['announcement_id']);
@@ -13,3 +13,4 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     exit;
 }
 ?>
+
