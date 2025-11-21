@@ -5,15 +5,7 @@ if (!isset($_SESSION['username']) || $_SESSION['role'] !== 'admin') {
     exit;
 }
 
-$host = 'localhost';
-$dbname = 'OJT';
-$dbuser = 'root';
-$dbpass = '';
-
-$conn = new mysqli($host, $dbuser, $dbpass, $dbname);
-if ($conn->connect_error) {
-    die('Database connection failed: ' . $conn->connect_error);
-}
+include 'config/DBconfig.php';
 
 $message = '';
 $departments = [];
@@ -78,3 +70,4 @@ $conn->close();
 </div>
 </body>
 </html>
+
