@@ -1,14 +1,10 @@
 services:
   - type: web
     name: ojt-php-app
-    env: php
+    env: docker
     plan: free
-    rootDir: .
-    buildCommand: |
-      apt-get update && 
-      apt-get install -y libpq-dev && 
-      docker-php-ext-install pdo pdo_pgsql pgsql
-    startCommand: php -S 0.0.0.0:10000
+    docker:
+      dockerfilePath: ./Dockerfile
     envVars:
       - key: DB_HOST
         value: dpg-d4fnncvpmn1nc73f3k1rg-a.singapore-postgres.render.com
