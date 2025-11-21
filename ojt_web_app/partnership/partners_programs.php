@@ -5,14 +5,8 @@ if (!isset($_SESSION['username']) || !in_array($_SESSION['role'], ['admin', 'use
     exit;
 }
 
-$host = 'localhost';
-$dbname = 'ojt';
-$dbuser = 'root';
-$dbpass = '';
-$conn = new mysqli($host, $dbuser, $dbpass, $dbname);
-if ($conn->connect_error) {
-    die('Database connection failed: ' . $conn->error);
-}
+include 'config/DBconfig.php';
+
 
 function escape($str) {
     return htmlspecialchars($str, ENT_QUOTES, 'UTF-8');
@@ -611,4 +605,5 @@ if ($matching_dept_id) {
 
 <?php
 $conn->close();
+
 ?>
