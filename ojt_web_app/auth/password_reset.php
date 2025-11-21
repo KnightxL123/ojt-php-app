@@ -1,15 +1,6 @@
 <?php
 session_start();
-
-$host = 'localhost';
-$dbname = 'OJT';
-$user = 'root';
-$pass = '';
-
-$conn = new mysqli($host, $user, $pass, $dbname);
-if ($conn->connect_error) {
-    die('Connection failed: '.$conn->connect_error);
-}
+include 'config/DBconfig.php'
 
 if (isset($_SESSION['username'])) {
     if ($_SESSION['role'] === 'admin') {
@@ -133,3 +124,4 @@ $stmt->close();
   </div>
 </body>
 </html>
+
