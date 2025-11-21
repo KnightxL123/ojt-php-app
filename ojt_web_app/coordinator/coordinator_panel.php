@@ -11,16 +11,7 @@ if ($_SESSION['role'] !== 'coordinator') {
     header('Location: login.php?error=' . urlencode("Unauthorized access. Coordinator role required."));
     exit;
 }
-
-$host = 'localhost';
-$dbname = 'ojt';
-$dbuser = 'root';
-$dbpass = '';
-
-$conn = new mysqli($host, $dbuser, $dbpass, $dbname);
-if ($conn->connect_error) {
-    die('Database connection failed: ' . $conn->connect_error);
-}
+include 'config/DBconfig.php'
 
 // Get coordinator's department
 $coordinator_id = $_SESSION['user_id'] ?? null;
@@ -685,4 +676,5 @@ new Chart(document.getElementById('hoursChart'), {
 });
 </script>
 </body>
+
 </html>
