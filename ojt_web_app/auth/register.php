@@ -9,17 +9,7 @@ if (isset($_SESSION['username'])) {
     exit;
 }
 
-// Database connection
-$host = 'localhost';
-$dbname = 'OJT';
-$user = 'root';
-$pass = '';
-
-$conn = new mysqli($host, $user, $pass, $dbname);
-if ($conn->connect_error) {
-    die('Connection failed: '.$conn->connect_error);
-}
-
+include 'config/DBconfig.php'
 // Fetch departments for selection
 $departments = [];
 $result = $conn->query("SELECT id, name FROM departments WHERE status = 'active' AND deleted_at IS NULL");
@@ -267,4 +257,5 @@ if ($result) {
     });
   </script>
 </body>
+
 </html>
