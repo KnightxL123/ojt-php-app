@@ -13,20 +13,7 @@ function displayStatus($status) {
     return 'Missing';
 }
 
-// Database configuration
-$host = 'localhost';
-$dbname = 'ojt';
-$dbuser = 'root';
-$dbpass = '';
-
-try {
-    $conn = new mysqli($host, $dbuser, $dbpass, $dbname);
-    
-    if ($conn->connect_error) {
-        throw new Exception("Database connection failed: " . $conn->connect_error);
-    }
-    
-    $conn->set_charset("utf8mb4");
+include 'config/DBconfig.php'
 
     // Get coordinator's department
     $coordinator_id = $_SESSION['user_id'];
@@ -578,4 +565,5 @@ try {
 $conn->close();
 header('Location: coordinator_monitor.php');
 exit;
+
 ?>
