@@ -1,5 +1,9 @@
 {
   "name": "ojt-php-app",
   "description": "OJT PHP Application",
-  "require": {}
+  "require": {
+    "ext-pdo": "*",
+    "ext-pdo_pgsql": "*",
+    "ext-pgsql": "*"
+  }
 }
