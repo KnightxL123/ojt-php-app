@@ -5,15 +5,7 @@ if (!isset($_SESSION['username']) || $_SESSION['role'] !== 'admin') {
     exit;
 }
 
-try {
-    $conn = new mysqli("localhost", "root", "", "ojt");
-    if ($conn->connect_error) {
-        throw new Exception("Connection failed: " . $conn->connect_error);
-    }
-    $conn->set_charset("utf8mb4");
-} catch (Exception $e) {
-    die("Database error: " . $e->getMessage());
-}
+include 'config/DBconfig.php';
 
 $error = '';
 $success = '';
@@ -109,4 +101,5 @@ if (!$program) {
         </form>
     </div>
 </body>
+
 </html>
