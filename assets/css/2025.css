@@ -1,0 +1,140 @@
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+}
+
+/* Header */
+.header {
+    background: #f8f9fa;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 15px 30px;
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+/* Logo */
+.header-logo {
+    height: 80px; /* Increased Logo Size */
+}
+
+/* Search Bar */
+.search-bar input {
+    width: 350px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+/* Icons */
+.header-icons a {
+    font-size: 28px;
+    color: #333;
+    margin-left: 20px;
+    text-decoration: none;
+}
+
+.header-icons a:hover {
+    color: #28a745;
+}
+
+/* Main Layout */
+.main-container {
+    display: flex;
+    height: 100vh;
+}
+
+/* Sidebar */
+.sidebar {
+    width: 250px;
+    background: #0da80d;
+    color: white;
+    padding: 20px;
+    height: 100vh;
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.2);
+    border-radius: 15px; /* Rounded Box */
+    margin: 15px; /* Added Spacing */
+}
+
+/* Sidebar Navigation */
+.sidebar ul {
+    list-style: none;
+    padding: 0;
+}
+
+.sidebar ul li {
+    padding: 20px;
+    text-align: center;
+    font-size: 18px;
+}
+
+.sidebar ul li a {
+    text-decoration: none;
+    color: white;
+    display: block;
+    font-weight: bold;
+}
+
+.sidebar ul li:hover {
+    background: #2c3e50;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+.partner-card {
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    transition: all 0.3s ease;
+    border: none;
+    height: 100%;
+}
+
+.card-link {
+    text-decoration: none;
+    color: inherit;
+    display: block;
+    height: 100%;
+}
+
+.hover-effect:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 12px rgba(0,0,0,0.15);
+}
+
+.partner-logo {
+    max-height: 120px;
+    object-fit: contain;
+    max-width: 80%;
+    margin: 0 auto;
+}
+
+.card-title {
+    font-size: 1.1rem;
+    color: #2c3e50;
+    font-weight: 600;
+    min-height: 3rem; /* Ensures consistent title height */
+}
+
+.partner-stats {
+    background-color: #f8f9fa;
+    border-radius: 8px;
+    padding: 10px;
+    margin-top: 10px;
+}
+
+/* Cursor pointer for clickable cards */
+.card-link:hover {
+    cursor: pointer;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .col-md-4 {
+        flex: 0 0 100%;
+        max-width: 100%;
+    }
+    .partner-logo {
+        max-height: 100px;
+    }
+}

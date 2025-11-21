@@ -1,0 +1,6 @@
+{
+    "require": {
+        "phpoffice/phpspreadsheet": "^4.2",
+        "maennchen/zipstream-php": "^2.1"
+    }
+}

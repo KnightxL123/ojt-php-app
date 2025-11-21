@@ -1,0 +1,709 @@
+/* Base Styles */
+:root {
+    --primary-color: #0da80d;
+    --primary-dark: #0b8e0b;
+    --secondary-color: #2c3e50;
+    --light-gray: #f8f9fa;
+    --medium-gray: #e9ecef;
+    --dark-gray: #333;
+    --text-gray: #666;
+}
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+}
+
+/* Header */
+.header {
+    background: #f8f9fa;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 15px 30px;
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+/* Logo */
+.header-logo {
+    height: 80px; /* Increased Logo Size */
+}
+
+/* Search Bar */
+.search-bar input {
+    width: 350px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+/* Icons */
+.header-icons a {
+    font-size: 28px;
+    color: #333;
+    margin-left: 20px;
+    text-decoration: none;
+}
+
+.header-icons a:hover {
+    color: #28a745;
+}
+
+/* Main Layout */
+.main-container {
+    display: flex;
+    height: 100vh;
+}
+
+/* Sidebar */
+.sidebar {
+    width: 250px;
+    background: #0da80d;
+    color: white;
+    padding: 20px;
+    height: 100vh;
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.2);
+    border-radius: 15px; /* Rounded Box */
+    margin: 15px; /* Added Spacing */
+}
+
+/* Sidebar Navigation */
+.sidebar ul {
+    list-style: none;
+    padding: 0;
+}
+
+.sidebar ul li {
+    padding: 20px;
+    text-align: center;
+    font-size: 18px;
+}
+
+.sidebar ul li a {
+    text-decoration: none;
+    color: white;
+    display: block;
+    font-weight: bold;
+}
+
+.sidebar ul li:hover {
+    background: #2c3e50;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+/* Main Layout */
+.main-container {
+    display: flex;
+    min-height: calc(100vh - 60px);
+}
+
+/* Content Area */
+.content {
+    flex: 1;
+    padding: 25px;
+    display: flex;
+    gap: 25px;
+    background-color: #f9f9f9;
+}
+
+/* Student List Section */
+.student-list-section {
+    width: 350px;
+    background: white;
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+    height: calc(100vh - 110px);
+    overflow-y: auto;
+    position: sticky;
+    top: 85px;
+}
+
+.section-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+    padding-bottom: 15px;
+    border-bottom: 1px solid var(--medium-gray);
+}
+
+.section-header span {
+    font-weight: 600;
+    font-size: 1.1rem;
+    color: var(--dark-gray);
+}
+
+
+/* Adviser Profile */
+.adviser-profile {
+    display: flex;
+    background: white;
+    padding: 20px;
+    border-radius: 8px;
+    margin-bottom: 25px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+    border: 1px solid var(--medium-gray);
+}
+
+
+/* Student List Header */
+.student-list-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15px;
+    font-size: 0.9rem;
+    color: var(--text-gray);
+}
+
+.student-list-actions {
+    display: flex;
+    gap: 10px;
+}
+
+.student-list-actions i {
+    cursor: pointer;
+    color: var(--text-gray);
+    transition: color 0.3s;
+}
+
+.student-list-actions i:hover {
+    color: var(--primary-color);
+}
+
+/* Student List */
+.student-list {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.student-item {
+    display: flex;
+    align-items: center;
+    padding: 12px 15px;
+    background: white;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s;
+    border: 1px solid var(--medium-gray);
+    gap: 15px;
+}
+
+.student-item:hover {
+    border-color: var(--primary-color);
+    box-shadow: 0 2px 8px rgba(13, 168, 13, 0.1);
+}
+
+.student-item.active {
+    border-color: var(--primary-color);
+    background-color: rgba(13, 168, 13, 0.05);
+}
+
+.student-avatar {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: var(--primary-color);
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 600;
+    font-size: 0.9rem;
+}
+
+.student-info {
+    flex: 1;
+}
+
+.student-name {
+    font-weight: 500;
+    margin-bottom: 5px;
+}
+
+.student-progress {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.progress-bar {
+    height: 6px;
+    background-color: var(--primary-color);
+    border-radius: 3px;
+    flex-grow: 1;
+}
+
+.student-progress span {
+    font-size: 0.75rem;
+    color: var(--text-gray);
+}
+
+.student-item i.bi-chevron-right {
+    color: var(--text-gray);
+    font-size: 0.9rem;
+}
+
+/* Student Details Section */
+.student-details-section {
+    flex: 1;
+    background: white;
+    border-radius: 10px;
+    padding: 25px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+    height: calc(100vh - 110px);
+    overflow-y: auto;
+}
+
+.default-message {
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.empty-state {
+    text-align: center;
+    max-width: 400px;
+    padding: 30px;
+}
+
+.empty-state i {
+    font-size: 3.5rem;
+    color: var(--primary-color);
+    margin-bottom: 20px;
+}
+
+.empty-state h3 {
+    color: var(--dark-gray);
+    margin-bottom: 10px;
+    font-weight: 600;
+}
+
+.empty-state p {
+    color: var(--text-gray);
+    line-height: 1.6;
+}
+
+/* Student Details Content (will be added by JavaScript) */
+.student-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 25px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid var(--medium-gray);
+}
+
+.student-header h2 {
+    margin: 0;
+    color: var(--dark-gray);
+    font-weight: 600;
+}
+
+.student-program {
+    background: var(--primary-color);
+    color: white;
+    padding: 5px 15px;
+    border-radius: 20px;
+    font-size: 0.85rem;
+    font-weight: 500;
+}
+
+.student-info-container {
+    margin-bottom: 25px;
+}
+
+.student-info-item {
+    display: flex;
+    align-items: center;
+    margin-bottom: 12px;
+    font-size: 0.95rem;
+}
+
+.student-info-item input[type="checkbox"] {
+    margin-right: 12px;
+    width: 18px;
+    height: 18px;
+    accent-color: var(--primary-color);
+}
+
+.requirements-tabs {
+    display: flex;
+    margin-bottom: 20px;
+    border-bottom: 1px solid var(--medium-gray);
+    gap: 5px;
+}
+
+.tab {
+    padding: 10px 20px;
+    cursor: pointer;
+    font-size: 0.9rem;
+    font-weight: 500;
+    color: var(--text-gray);
+    border-bottom: 2px solid transparent;
+    transition: all 0.3s;
+}
+
+.tab:hover {
+    color: var(--dark-gray);
+}
+
+.tab.active {
+    color: var(--primary-color);
+    border-bottom-color: var(--primary-color);
+}
+
+.requirements-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 25px;
+}
+
+.requirements-table th {
+    text-align: left;
+    padding: 12px 15px;
+    background: var(--light-gray);
+    color: var(--dark-gray);
+    font-weight: 500;
+    font-size: 0.85rem;
+    text-transform: uppercase;
+}
+
+.requirements-table td {
+    padding: 15px;
+    border-bottom: 1px solid var(--medium-gray);
+    font-size: 0.9rem;
+}
+
+.status-approved {
+    color: var(--primary-color);
+    font-weight: 500;
+}
+
+.status-pending {
+    color: #ffc107;
+    font-weight: 500;
+}
+
+.status-missing {
+    color: #dc3545;
+    font-weight: 500;
+}
+
+.action-button {
+    color: var(--primary-color);
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.3s;
+}
+
+.action-button:hover {
+    color: var(--primary-dark);
+    text-decoration: underline;
+}
+
+.buttons-container {
+    display: flex;
+    justify-content: flex-end;
+    gap: 15px;
+    margin-top: 30px;
+}
+
+.btn {
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: 500;
+    font-size: 0.9rem;
+    transition: all 0.3s;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.btn-reminder {
+    background: white;
+    border: 1px solid var(--medium-gray);
+    color: var(--dark-gray);
+}
+
+.btn-reminder:hover {
+    background: var(--light-gray);
+}
+
+.btn-report {
+    background: var(--primary-color);
+    border: 1px solid var(--primary-color);
+    color: white;
+}
+
+.btn-report:hover {
+    background: var(--primary-dark);
+    border-color: var(--primary-dark);
+}
+
+
+/* Requirements Title */
+.requirements-title {
+    color: var(--dark-gray);
+    font-size: 1.1rem;
+    margin-bottom: 15px;
+    padding-bottom: 8px;
+    border-bottom: 1px solid var(--medium-gray);
+}
+
+/* Progress Section Styles */
+.progress-container {
+    background: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+}
+
+.progress-container h3 {
+    color: var(--dark-gray);
+    margin-bottom: 20px;
+    font-weight: 600;
+}
+
+.progress-item {
+    margin-bottom: 25px;
+}
+
+.progress-header {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 8px;
+    font-size: 0.9rem;
+}
+
+.progress-bar-container {
+    height: 10px;
+    background: var(--light-gray);
+    border-radius: 5px;
+    overflow: hidden;
+}
+
+.progress-bar-fill {
+    height: 100%;
+    background: var(--primary-color);
+    border-radius: 5px;
+    transition: width 0.5s ease;
+}
+
+.progress-update {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 0.85rem;
+    color: var(--text-gray);
+    margin-top: 30px;
+}
+
+.progress-update i {
+    font-size: 1rem;
+}
+
+/* Section Dropdown Styles */
+.section-dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.dropdown-toggle {
+    background: none;
+    border: none;
+    color: var(--dark-gray);
+    font-weight: 600;
+    font-size: 1.1rem;
+    padding: 5px 10px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.dropdown-toggle:hover {
+    color: var(--primary-color);
+}
+
+.dropdown-menu {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    padding: 10px 0;
+    min-width: 150px;
+    z-index: 100;
+    display: none;
+}
+
+.dropdown-menu li {
+    list-style: none;
+}
+
+.dropdown-menu a {
+    display: block;
+    padding: 8px 15px;
+    color: var(--dark-gray);
+    text-decoration: none;
+    font-size: 0.95rem;
+}
+
+.dropdown-menu a:hover {
+    background: var(--light-gray);
+    color: var(--primary-color);
+}
+
+.section-dropdown:hover .dropdown-menu {
+    display: block;
+}
+
+/* ===================== */
+/* ADVISER PROFILE STYLES */
+/* ===================== */
+
+.adviser-profile {
+    display: flex;
+    background: white;
+    padding: 0px;
+    border-radius: 30px;
+    margin-bottom: 25px;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.08);
+    border: 1px solid var(--medium-gray);
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.adviser-profile::before {
+    content: '';
+    position: absolte;
+    top: 0;
+    left: 0;
+    width: 4px;
+    height: 100%;
+    background: var(--primary-color);
+}
+
+.adviser-photo {
+    width: 90px;
+    height: 90px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 3px solid var(--primary-color);
+    margin-right: 10px;
+    box-shadow: 0 3px 15px rgba(13, 168, 13, 0.2);
+    transition: all 0.3s ease;
+    z-index: 2;
+    background-color: #f8f8f8;
+}
+
+.adviser-photo:hover {
+    transform: scale(1.05);
+    box-shadow: 0 5px 20px rgba(13, 168, 13, 0.3);
+}
+
+.adviser-info {
+    flex: 1;
+    position: relative;
+}
+
+.adviser-name {
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: var(--dark-gray);
+    margin-bottom: 6px;
+    letter-spacing: 0.5px;
+}
+
+.adviser-title {
+    font-size: 0.9rem;
+    color: var(--primary-color);
+    margin-bottom: 12px;
+    font-weight: 600;
+    display: inline-block;
+    background: rgba(13, 168, 13, 0.1);
+    padding: 4px 10px;
+    border-radius: 20px;
+}
+
+.adviser-description {
+    font-size: 0.9rem;
+    color: var(--text-gray);
+    line-height: 1.6;
+    margin-bottom: 15px;
+    padding-right: 10px;
+}
+
+.adviser-contact {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    font-size: 0.85rem;
+}
+
+.adviser-contact span {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    color: var(--dark-gray);
+    transition: color 0.3s ease;
+}
+
+.adviser-contact span:hover {
+    color: var(--primary-color);
+}
+
+.adviser-contact i {
+    font-size: 1rem;
+    color: var(--primary-color);
+    width: 18px;
+    text-align: center;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .adviser-profile {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        padding: 25px 15px;
+    }
+    
+    .adviser-photo {
+        margin-right: 0;
+        margin-bottom: 15px;
+        width: 80px;
+        height: 80px;
+    }
+    
+    .adviser-title {
+        margin-left: auto;
+        margin-right: auto;
+    }
+    
+    .adviser-contact {
+        align-items: center;
+    }
+    
+    .adviser-description {
+        padding-right: 0;
+    }
+}
+
+/* Animation for section changes */
+@keyframes fadeInAdviser {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.section-change .adviser-profile {
+    animation: fadeInAdviser 0.5s ease forwards;
+}

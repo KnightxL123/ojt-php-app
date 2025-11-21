@@ -1,0 +1,16 @@
+services:
+  - type: web
+    name: ojt-system
+    env: php
+    plan: free
+    buildCommand: ""
+    startCommand: php -S 0.0.0.0:10000
+    envVars:
+      - key: DB_HOST
+        value: dpg-d4fnncvpmn1nc73f3k1rg-a.singapore-postgres.render.com
+      - key: DB_NAME
+        value: ojt_system
+      - key: DB_USER
+        value: ojt_user
+      - key: DB_PASS
+        value: uIR37XPSCdh0V5xDMxmy03UdfuXYJEPH
