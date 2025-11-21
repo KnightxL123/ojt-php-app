@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Upload Documents</title>
+    <script src="upload.js"></script>
+    <style>
+        #progressBar { width: 100%; background: #eee; margin-top: 10px; }
+        #progressBar div { width: 0%; height: 20px; background: #4caf50; text-align: center; color: white; }
+        #spinner { display: none; }
+    </style>
+</head>
+<body>
+    <h1>Upload Documents (Admin Only)</h1>
+    <form id="uploadForm">
+        <label>Section:</label>
+        <select name="section" required>
+            <option value="BSIT4A">BSIT4A</option>
+            <option value="BSIT4B">BSIT4B</option>
+            <option value="BSIT4C">BSIT4C</option>
+        </select><br><br>
+        <input type="file" name="document" required><br><br>
+        <button type="submit">Upload</button>
+    </form>
+    <script>
+        document.getElementById('uploadForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            let formData = new FormData(this);
+            let xhr = new XMLHttpRequest();
+            xhr.open('POST', 'upload_documents.php', true);
+        
+            xhr.onload = function() {
+                if (xhr.status === 200) {
+                    let res = JSON.parse(xhr.responseText);
+                    document.getElementById('status').innerText = res.message;
+                } else {
+                    document.getElementById('status').innerText = 'Upload failed.';
+                }
+            };
+        
+            xhr.send(formData);
+        });
+        </script>
+        
+</body>
+</html>
