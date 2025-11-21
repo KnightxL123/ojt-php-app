@@ -7,10 +7,7 @@ if (!isset($_SESSION['user_id']) || !isset($_SESSION['role'])) {
     exit();
 }
 
-$conn = new mysqli('localhost', 'root', '', 'OJT');
-if ($conn->connect_error) {
-    die("Connection failed: " . $conn->connect_error);
-}
+include 'config/DBconfig.php';
 
 $search = isset($_GET['search']) ? trim($_GET['search']) : '';
 $sort_order = (isset($_GET['sort_order']) && in_array($_GET['sort_order'], ['ASC', 'DESC'])) ? $_GET['sort_order'] : 'DESC';
@@ -327,4 +324,5 @@ if (isset($_POST['mark_read'])) {
 </body>
 </html>
 <?php
+
 $stmt->close();
