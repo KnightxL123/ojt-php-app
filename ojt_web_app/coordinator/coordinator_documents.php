@@ -12,12 +12,7 @@ if ($_SESSION['role'] !== 'coordinator') {
     exit;
 }
 
-// Database configuration
-$host = 'localhost';
-$dbname = 'ojt'; // Changed to lowercase
-$dbuser = 'root';
-$dbpass = '';
-
+include 'config/DBconfig.php'
 // Function to get status class
 function getStatusClass($status) {
     if (strpos($status, 'Approved') !== false) return 'status-approved';
@@ -577,4 +572,5 @@ try {
 $conn->close();
 header('Location: coordinator_documents.php');
 exit;
+
 ?>
