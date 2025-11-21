@@ -1,15 +1,7 @@
 <?php
 session_start();
+include 'config/DBconfig.php';
 
-$host = 'localhost';
-$dbname = 'OJT';
-$user = 'root';
-$pass = '';
-
-$conn = new mysqli($host, $user, $pass, $dbname);
-if ($conn->connect_error) {
-    die('Connection failed: '.$conn->connect_error);
-}
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $username = trim($_POST['username'] ?? '');
@@ -69,4 +61,5 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     header('Location: login.php');
     exit;
 }
+
 ?>
