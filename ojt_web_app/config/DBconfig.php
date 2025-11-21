@@ -1,21 +1,18 @@
 <?php
-$db_host = getenv('DB_HOST') ?: 'dpg-d4fnncvpmn1nc73f3k1rg-a.singapore-postgres.render.com';
-$db_name = getenv('DB_NAME') ?: 'ojt_system';
-$db_user = getenv('DB_USER') ?: 'ojt_user';
-$db_pass = getenv('DB_PASS') ?: 'uIR37XPSCdh0V5xDMxmy03UdfuXYJEPH';
+// config/DBconfig.php
+// Database configuration for Render PostgreSQL
+$host = getenv('DB_HOST') ?: 'dpg-d4fnncvpm1nc73f3kl7g-a';  // Fallback for local dev
+$port = getenv('DB_PORT') ?: '5432';
+$dbname = getenv('DB_NAME') ?: 'ojt_system';
+$dbuser = getenv('DB_USER') ?: 'ojt_user';
+$dbpass = getenv('DB_PASS') ?: 'uIR37XPSCdh0V5xDMxmy03UdfuXYJEPH';
 
-// Try PostgreSQL first, fallback to MySQLi
 try {
-    // PostgreSQL PDO
-    $conn = new PDO("pgsql:host=$db_host;dbname=$db_name", $db_user, $db_pass);
-    $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-    echo "<!-- Using PostgreSQL -->";
+    // PDO connection string for PostgreSQL
+    $dsn = "pgsql:host=$host;port=$port;dbname=$dbname;user=$dbuser;password=$dbpass";
+    $conn = new PDO($dsn);
+    $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);  // Enable exceptions for errors
 } catch (PDOException $e) {
-    // Fallback to MySQLi (for compatibility)
-    $conn = new mysqli($db_host, $db_user, $db_pass, $db_name);
-    if ($conn->connect_error) {
-        die("Connection failed: " . $conn->connect_error);
-    }
-    echo "<!-- Using MySQLi -->";
+    die('Database connection failed: ' . $e->getMessage());
 }
 ?>
