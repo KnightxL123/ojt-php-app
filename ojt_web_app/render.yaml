@@ -3,8 +3,7 @@ services:
     name: ojt-php-app
     env: php
     plan: free
-    buildCommand: ""
-    startCommand: php -S 0.0.0.0:$PORT
+    startCommand: php -S 0.0.0.0:$PORT -t public
     envVars:
       - key: DB_HOST
         value: dpg-d4fnncvpmn1nc73f3k1rg-a.singapore-postgres.render.com
