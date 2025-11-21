@@ -3,6 +3,7 @@ services:
     name: ojt-php-app
     env: php
     plan: free
+     rootDir: ojt_web_app
     buildCommand: ""
     startCommand: php -S 0.0.0.0:10000
     envVars:
@@ -15,3 +16,4 @@ services:
       - key: DB_PASS
         value: uIR37XPSCdh0V5xDMxmy03UdfuXYJEPH
     healthCheckPath: /api.php?action=validate_student
+
