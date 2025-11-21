@@ -1,16 +1,7 @@
 <?php
 session_start();
 
-$host = 'localhost';
-$dbname = 'OJT';
-$user = 'root';
-$pass = '';
-
-$conn = new mysqli($host, $user, $pass, $dbname);
-if ($conn->connect_error) {
-    die('Connection failed: '.$conn->connect_error);
-}
-
+include 'config/DBconfig.php'
 
 if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
     header('Location: password_reset_request.php');
@@ -82,3 +73,4 @@ $del_stmt->close();
 header('Location: login.php?msg=' . urlencode('Password reset successful. Please login.'));
 exit;
 ?>
+
