@@ -5,14 +5,8 @@ if (!isset($_SESSION['username']) || !in_array($_SESSION['role'], ['admin', 'use
     exit;
 }
 
-$host = 'localhost'; 
-$dbname = 'OJT'; 
-$dbuser = 'root'; 
-$dbpass = ''; 
-$conn = new mysqli($host, $dbuser, $dbpass, $dbname); 
-if ($conn->connect_error) { 
-    die('Database connection failed: ' . $conn->connect_error); 
-} 
+include 'config/DBconfig.php';
+
 
 // Get distinct partnership years from partners table 
 $years = []; 
@@ -103,3 +97,4 @@ function escape($str) {
 </div>
 </body>
 </html>
+
