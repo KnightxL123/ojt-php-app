@@ -5,15 +5,7 @@ if (!isset($_SESSION['username']) || $_SESSION['role'] !== 'admin') {
     exit;
 }
 
-$dbHost = 'localhost';
-$dbName = 'OJT';
-$dbUser = 'root';
-$dbPass = '';
-
-$conn = new mysqli($dbHost, $dbUser, $dbPass, $dbName);
-if ($conn->connect_error) {
-    die('Database connection failed: ' . $conn->connect_error);
-}
+include 'config/DBconfig.php';
 
 $res = $conn->query("SELECT * FROM announcements ORDER BY created_at DESC");
 $announcements = $res->fetch_all(MYSQLI_ASSOC);
@@ -244,4 +236,5 @@ function escape($str) {
         </div>
     </div>
 </body>
+
 </html>
