@@ -1,5 +1,7 @@
 <?php
 session_start();
+include 'config/DBconfig.php';
+
 if (!isset($_SESSION['username']) || $_SESSION['role'] !== 'admin') {
     header('Location: login.php');
     exit;
@@ -143,4 +145,5 @@ if (!$program) {
         </form>
     </div>
 </body>
+
 </html>
