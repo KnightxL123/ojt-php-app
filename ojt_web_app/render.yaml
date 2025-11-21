@@ -3,8 +3,10 @@ services:
     name: ojt-php-app
     env: php
     plan: free
-     rootDir: ojt_web_app
-    buildCommand: ""
+    rootDir: ojt_web_app
+    buildCommand: |
+      apt-get update && apt-get install -y libpq-dev && 
+      docker-php-ext-install pdo pdo_pgsql pgsql
     startCommand: php -S 0.0.0.0:10000
     envVars:
       - key: DB_HOST
@@ -16,4 +18,3 @@ services:
       - key: DB_PASS
         value: uIR37XPSCdh0V5xDMxmy03UdfuXYJEPH
     healthCheckPath: /api.php?action=validate_student
-
