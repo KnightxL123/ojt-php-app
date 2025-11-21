@@ -4,17 +4,7 @@ if (!isset($_SESSION['username']) || !in_array($_SESSION['role'], ['admin', 'use
     header('Location: login.php');
     exit;
 }
-
-$dbHost = 'localhost';
-$dbName = 'OJT';
-$dbUser = 'root';
-$dbPass = '';
-
-$conn = new mysqli($dbHost, $dbUser, $dbPass, $dbName);
-if ($conn->connect_error) {
-    die('Database connection failed: ' . $conn->connect_error);
-}
-
+include 'config/DBconfig.php';
 // Initialize breadcrumbs
 $breadcrumbs = ['Monitoring' => 'monitoring.php'];
 
@@ -1049,4 +1039,5 @@ if ($deptId && $programId && $sectionId) {
 // Fallback: redirect to monitoring.php root
 header('Location: monitoring.php');
 exit;
+
 ?>
