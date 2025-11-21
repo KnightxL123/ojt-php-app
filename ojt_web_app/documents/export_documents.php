@@ -6,10 +6,7 @@ if (!$dept_id || !$section_id) {
     die("Invalid request: Missing department or section");
 }
 
-$conn = new mysqli('localhost', 'root', '', 'OJT');
-if ($conn->connect_error) {
-    die('Database connection failed: ' . $conn->connect_error);
-}
+include 'config/DBconfig.php'
 
 // Fetch documents filtered by section and department using JOINs
 $sql = "
@@ -47,3 +44,4 @@ $stmt->close();
 $conn->close();
 exit;
 ?>
+
