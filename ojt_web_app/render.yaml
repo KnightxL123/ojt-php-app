@@ -3,11 +3,12 @@ services:
     name: ojt-php-app
     env: php
     plan: free
-    rootDir: ojt_web_app
+    rootDir: .
     buildCommand: |
-      echo "Installing dependencies..." &&
-      composer install --no-dev --optimize-autoloader
-    startCommand: php -S 0.0.0.0:10000 -t .
+      apt-get update && 
+      apt-get install -y libpq-dev && 
+      docker-php-ext-install pdo pdo_pgsql pgsql
+    startCommand: php -S 0.0.0.0:10000
     envVars:
       - key: DB_HOST
         value: dpg-d4fnncvpmn1nc73f3k1rg-a.singapore-postgres.render.com
