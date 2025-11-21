@@ -1,6 +1,6 @@
 services:
   - type: web
-    name: ojt-system
+    name: ojt-php-app
     env: php
     plan: free
     buildCommand: ""
