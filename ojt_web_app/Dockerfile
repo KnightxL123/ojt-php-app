@@ -1,13 +1,11 @@
 # Use official PHP CLI image
 FROM php:8.2-cli
 
-# Install mysqli and PDO MySQL extensions
+# Install PostgreSQL extensions instead of MySQL
 RUN apt-get update && apt-get install -y \
-        libonig-dev \
-        libzip-dev \
-        unzip \
+        libpq-dev \
         git \
-    && docker-php-ext-install mysqli pdo pdo_mysql
+    && docker-php-ext-install pdo pdo_pgsql pgsql
 
 # Set working directory
 WORKDIR /app
