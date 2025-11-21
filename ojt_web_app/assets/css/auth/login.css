@@ -1,0 +1,70 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    background: linear-gradient(to bottom, #006400, #008000);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.login-box {
+    background: rgb(173, 173, 173); /* Example with red color and 50% opacity */
+    padding: 20px;
+    border-radius: 10px;
+    text-align: center;
+    box-shadow: 0 0 10px rgb(82, 82, 82);
+    width: 400px;
+}
+
+.logo {
+    width: 100px;
+    margin: 10px;
+}
+
+h2 {
+    margin: 10px 0;
+}
+
+input {
+    width: 80%;
+    padding: 10px;
+    margin: 10px 0;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+}
+
+.login-btn {
+    display: block; /* Change to block to center it */
+    justify-content: center;
+    align-items: center;
+    width: 80%;
+    padding: 10px;
+    background: green;
+    color: white;
+    text-align: center;
+    border-radius: 5px;
+    text-decoration: none;
+    font-weight: bold;
+    margin: 10px auto; /* Center the button */
+}
+
+.login-btn:hover {
+    background: darkgreen;
+}
+
+p {
+    margin-top: 10px; /* Corrected margin */
+}
+
+p a {
+    text-decoration: none;
+    color: blue;
+}
