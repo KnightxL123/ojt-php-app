@@ -1,15 +1,7 @@
 <?php
 session_start();
+include 'config/DBconfig.php';
 
-$host = 'localhost';
-$dbname = 'OJT';
-$user = 'root';
-$pass = '';
-
-$conn = new mysqli($host, $user, $pass, $dbname);
-if ($conn->connect_error) {
-    die('Connection failed: '.$conn->connect_error);
-}
 
 function is_valid_email($email) {
     return filter_var($email, FILTER_VALIDATE_EMAIL);
@@ -184,4 +176,5 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     header('Location: register.php');
     exit;
 }
+
 ?>
