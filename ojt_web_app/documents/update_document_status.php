@@ -6,13 +6,11 @@ if (!isset($_SESSION['username']) || $_SESSION['role'] !== 'coordinator') {
     exit;
 }
 
-// Database connection
-$host = 'localhost';
-$dbname = 'OJT';
-$dbuser = 'root';
-$dbpass = '';
+// Include database configuration
+include 'config/DBconfig.php';
 
 try {
+    // Database connection using config variables
     $conn = new mysqli($host, $dbuser, $dbpass, $dbname);
     
     if ($conn->connect_error) {
@@ -72,4 +70,5 @@ try {
 
 header('Location: coordinator_documents.php');
 exit;
+
 ?>
