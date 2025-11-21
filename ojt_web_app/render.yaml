@@ -1,6 +1,6 @@
 services:
   - type: web
-    name: ojt-system
+    name: ojt-php-app
     env: php
     plan: free
     buildCommand: ""
@@ -14,3 +14,4 @@ services:
         value: ojt_user
       - key: DB_PASS
         value: uIR37XPSCdh0V5xDMxmy03UdfuXYJEPH
+    healthCheckPath: /api.php?action=validate_student
