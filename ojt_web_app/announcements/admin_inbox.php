@@ -1,6 +1,6 @@
 <?php
 session_start();
-$conn = new mysqli('localhost', 'root', '', 'ojt');
+include 'config/DBconfig.php';
 
 // Check if admin is logged in
 if (!isset($_SESSION['username']) || $_SESSION['role'] !== 'admin') {
@@ -581,4 +581,5 @@ $res = $stmt->get_result();
 
 <?php
 $conn->close();
+
 ?>
