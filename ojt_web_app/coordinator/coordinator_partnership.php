@@ -11,15 +11,7 @@ if ($_SESSION['role'] !== 'coordinator') {
     exit;
 }
 
-$host = 'localhost';
-$dbname = 'ojt'; // Changed to lowercase
-$dbuser = 'root';
-$dbpass = '';
-
-$conn = new mysqli($host, $dbuser, $dbpass, $dbname);
-if ($conn->connect_error) {
-    die('Database connection failed: ' . $conn->connect_error);
-}
+include 'config/DBconfig.php'
 
 // Get coordinator's department
 $coordinator_id = $_SESSION['user_id'] ?? null;
@@ -312,4 +304,5 @@ function sanitize($str) {
 
 <?php
 $conn->close();
+
 ?>
