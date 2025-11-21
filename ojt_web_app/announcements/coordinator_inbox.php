@@ -5,14 +5,7 @@ if (!isset($_SESSION['username']) || $_SESSION['role'] !== 'coordinator') {
     exit;
 }
 
-$host = 'localhost';
-$dbname = 'ojt';
-$dbuser = 'root';
-$dbpass = '';
-$conn = new mysqli($host, $dbuser, $dbpass, $dbname);
-if ($conn->connect_error) {
-    die('Database connection failed: ' . $conn->error);
-}
+include 'config/DBconfig.php';
 
 function escape($str) {
     return htmlspecialchars($str, ENT_QUOTES, 'UTF-8');
@@ -593,3 +586,4 @@ $department = $dept_result->fetch_assoc();
 <?php
 $conn->close();
 ?>
+
