@@ -1,23 +1,11 @@
-<?php
+e<?php
 session_start();
 if (!isset($_SESSION['username']) || !in_array($_SESSION['role'], ['admin', 'user'])) {
     header('Location: ../auth/login.php');
     exit;
 }
 
-// Database configuration
-$host = 'localhost';
-$dbname = 'ojt'; // Changed from 'OJT' to 'ojt'
-$dbuser = 'root';
-$dbpass = '';
-
-// Create connection with error handling
-try {
-    $conn = new mysqli($host, $dbuser, $dbpass, $dbname);
-    
-    if ($conn->connect_error) {
-        throw new Exception("Database connection failed: " . $conn->connect_error);
-    }
+include 'config/DBconfig.php'
     
     // Set charset to ensure proper encoding
     $conn->set_charset("utf8mb4");
@@ -1029,4 +1017,5 @@ if ($dept_id && $program_id && $section_id) {
 $conn->close();
 header('Location: documents.php');
 exit;
+
 ?>
