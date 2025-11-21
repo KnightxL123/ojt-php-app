@@ -5,17 +5,7 @@ if (!isset($_SESSION['username']) || $_SESSION['role'] !== 'admin') {
     exit;
 }
 
-// Database config
-$host = 'localhost';
-$dbname = 'ojt';
-$dbuser = 'root';
-$dbpass = '';
-
-// Connect
-$conn = new mysqli($host, $dbuser, $dbpass, $dbname);
-if ($conn->connect_error) {
-    die('Database connection failed: ' . $conn->connect_error);
-}
+include 'config/DBconfig.php';
 
 // Gather statistics for dashboard (example student stats)
 $totalStudents = 0;
@@ -261,4 +251,5 @@ function sanitize($str) {
 </script>
 
 </body>
+
 </html>
