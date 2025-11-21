@@ -1,5 +1,6 @@
 <?php
 session_start();
+include 'config/DBconfig.php'
 if (isset($_SESSION['username'])) {
     if ($_SESSION['role'] === 'admin') {
         header('Location: admin_panel.php');
@@ -103,4 +104,5 @@ if (isset($_SESSION['username'])) {
     </div>
   </div>
 </body>
+
 </html>
