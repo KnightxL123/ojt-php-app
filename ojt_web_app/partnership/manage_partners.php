@@ -5,15 +5,8 @@ if (!isset($_SESSION['username']) || $_SESSION['role'] !== 'admin') {
     exit;
 }
 
-$host = 'localhost';
-$dbname = 'OJT';
-$user = 'root';
-$pass = '';
+include 'config/DBconfig.php';
 
-$conn = new mysqli($host, $user, $pass, $dbname);
-if ($conn->connect_error) {
-    die("Database connection failed: " . $conn->connect_error);
-}
 
 $message = '';
 $editData = null; // Initialize the variable
@@ -219,4 +212,5 @@ function e($str) {
 </div>
 
 </body>
+
 </html>
