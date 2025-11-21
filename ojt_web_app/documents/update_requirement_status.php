@@ -6,11 +6,8 @@ if (!isset($_SESSION['username']) || $_SESSION['role'] !== 'coordinator') {
     exit;
 }
 
-// Database connection
-$host = 'localhost';
-$dbname = 'OJT';
-$dbuser = 'root';
-$dbpass = '';
+include 'config/DBconfig.php';
+
 
 header('Content-Type: application/json');
 
@@ -82,4 +79,5 @@ try {
 
 echo json_encode(['success' => false, 'message' => 'Invalid request']);
 exit;
+
 ?>
