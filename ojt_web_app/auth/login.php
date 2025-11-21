@@ -2,7 +2,7 @@
 session_start();
 
 // Include database configuration
-include __DIR__ . '/../init.php';
+include 'config/DBconfig.php';
 
 
 
@@ -158,6 +158,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 </body>
 
 </html>
+
 
 
 
