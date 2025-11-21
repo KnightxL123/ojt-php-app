@@ -1,6 +1,9 @@
 <?php
 session_start();
 
+// Include database configuration
+include 'config/DBconfig.php';
+
 // Redirect logged in users
 if (isset($_SESSION['user_id'])) {
     switch ($_SESSION['role']) {
@@ -19,11 +22,7 @@ if (isset($_SESSION['user_id'])) {
 $error = '';
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    $host = 'localhost';
-    $dbname = 'ojt';
-    $dbuser = 'root';
-    $dbpass = '';
-    
+    // Database connection using config variables
     $conn = new mysqli($host, $dbuser, $dbpass, $dbname);
     
     if ($conn->connect_error) {
@@ -155,4 +154,5 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         </div>
     </div>
 </body>
+
 </html>
