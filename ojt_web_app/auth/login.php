@@ -2,7 +2,7 @@
 session_start();
 
 // Include database configuration
-include '../config/DBconfig.php';
+include __DIR__ . '/../config/DBconfig.php';
 
 
 // Redirect logged in users
@@ -157,4 +157,5 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 </body>
 
 </html>
+
 
